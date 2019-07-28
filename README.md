@@ -1,6 +1,6 @@
 # RuleEngine
 
-App Contians Two sections
+#App Contians Two sections
 
 Rule:
 
@@ -27,3 +27,26 @@ Stream:
 #Note
 	1. 	All the data are case sensitive.
 	2.	Application is executed and tested with "Visual Studio 2017" framework is targeted to ".NET Framework 4.6.1"
+	3.	"RuleEngineApp.zip" file contains files which in built in release mode "ReleaseModeApp.exe" can be executed directly.
+	
+
+#Discussion
+	1.	Approach and Trade-off
+			*	Rules are compared with each stream of data.
+			*	Fetching associated rule from each stream of data by comparing stream Source id and value type with the rule Source id and value type.
+			*	Compared stream Value with the Associated rule value.
+	
+	2.	Runtime Perfomance
+			*	Run time performnace includes DeSerealization of Json file for in comming data.
+			*	DeSerealization of All the rules from the file.
+			*	get the rule for each stream of data and compare the stream Value with the rule value.
+			*	Stream and Rule comparison includes O(n2) complexity.
+	
+	3.	Improvemens.
+			*	Object Serealization and DeSerealization implementation need to be improved.
+			*	Performance improvementation of application.
+			*	Design improvement.
+	
+	
+	
+	
