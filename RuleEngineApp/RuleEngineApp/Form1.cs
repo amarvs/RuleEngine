@@ -164,8 +164,30 @@ namespace RuleEngineApp
             cmbValueTypes.Items.Add(Constants.String);
             cmbValueTypes.Items.Add(Constants.Integer);
             cmbValueTypes.Items.Add(Constants.Datetime);
-            LoadRules();
+            if (File.Exists(_ruleFilePath))
+                LoadRules();
+            else
+                CreateFile();
 
+        }
+
+        /// <summary>
+        /// Creates file if not exist
+        /// </summary>
+        private void CreateFile()
+        {
+            try
+            {
+                using (var writer = new StreamWriter(_ruleFilePath))
+                {
+                    writer.Write("[]");
+                    writer.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
